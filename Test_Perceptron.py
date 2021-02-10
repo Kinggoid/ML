@@ -67,7 +67,7 @@ class Test_Network(unittest.TestCase):
     def test_XOR(self):
         # Maak het network
         x1_1 = Perceptron([1, 1], 1, 'x1_1')
-        x1_2 = Perceptron([-1, -1], -1.5, 'x1_1')
+        x1_2 = Perceptron([-1, -1], -1.5, 'x1_2')
 
         laag_een = PerceptronLaag([x1_1, x1_2])
 
@@ -80,7 +80,7 @@ class Test_Network(unittest.TestCase):
         antwoorden = []  # Kijk per input wat het antwoord zou zijn.
         for i in range(0, 2):
             for j in range(0, 2):
-                antwoorden.append(XOR.feed_forward([i, j]))
+                antwoorden.append(XOR.network([i, j]))
 
         self.assertEqual(antwoorden, [[0], [1], [1], [0]])  # Kijk of de outputs goed zijn
 
@@ -103,7 +103,7 @@ class Test_Network(unittest.TestCase):
         antwoorden = []  # Kijk per input wat het antwoord zou zijn.
         for i in range(0, 2):
             for j in range(0, 2):
-                antwoorden.append(Half_adder.feed_forward([i, j]))
+                antwoorden.append(Half_adder.network([i, j]))
 
         self.assertEqual(antwoorden, [[0, 0], [1, 0], [1, 0], [0, 1]])  # Kijk of de outputs goed zijn
 
